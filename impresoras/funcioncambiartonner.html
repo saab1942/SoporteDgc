@@ -1,0 +1,46 @@
+<?php
+require('../Conexion/conexion.php');
+
+$id     				=	$_REQUEST['iddispositivo'];
+
+
+$contimp 				= 	$_REQUEST['contimp'];
+$fecha 					= 	$_REQUEST['fecha'];
+$observaciones 			=	$_REQUEST['observaciones'];
+
+$idtonner				=  	$_REQUEST['idtonner'];
+
+
+
+
+
+$linea1			= "INSERT INTO impresora_has_tonner
+(contadorimpresora,fecha,observaciones,impresora_Dispositivo_idDispositivo,Tonner_idtonner)";
+$linea2 	   	= "VALUES ('$contimp','$fecha','$observaciones','$id','idtonner')";
+$consultaDispo	= $linea1.$linea2;
+
+
+echo $cadena;
+
+$consulta=mysql_query($cadena);
+
+if (!$consulta)
+{
+	echo "<p>Ha habido un error al insertar los valores.</p>";
+	echo mysql_errno($conexion) . ": " . mysql_error($conexion) . "\n";
+	
+} else {
+	echo "<h1>Los datos han sido introducidos satisfactoriamente</h1>";
+	header('Location: Gestiontonner.php');	
+}
+
+
+
+	
+
+
+
+
+
+?>
+
